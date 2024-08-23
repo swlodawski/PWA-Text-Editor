@@ -2,18 +2,18 @@
   "name": "pwa-text-editor",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "server.js",
   "directories": {
     "example": "examples"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "",
-    "start:dev": "",
-    "server": "",
-    "build": "",
-    "install": "",
-    "client": ""
+    "start": "npm run build && cd server && node server.js",
+    "start:dev": "concurrently \"cd server && npm run server\" \"cd client && npm run dev",
+    "server": "cd server nodemon server.js --ignore client",
+    "build": "cd client && npm run build",
+    "install": "cd server && npm i && cd ../client && npm i",
+    "client": "cd client && npm start"
   },
   "keywords": [],
   "author": "",
