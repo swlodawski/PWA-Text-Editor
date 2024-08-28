@@ -18,6 +18,10 @@ module.exports = () => {
       path: path.resolve(__dirname, 'dist'),
     },
     plugins: [
+      new HtmlWebpackPlugin({
+        template: './index.html',
+        title: 'Text-Editor'
+      }),
       new GenerateSW(),
       new WebpackPwaManifest({
         name: 'Text-Editor',
